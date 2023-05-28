@@ -70,7 +70,7 @@ int print_string(va_list types, char buffer[],
 		}
 		else
 		{
-			for (i = width - length; a > 0; a--)
+			for (a = width - length; a > 0; a--)
 				write(1, " ", 1);
 			write(1, &string[0], length);
 			return (width);
