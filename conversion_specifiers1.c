@@ -8,7 +8,6 @@
  * @width: width specifications
  * @precision: Precision specification
  * @size: Size specifier
-
  * Return: Number of characters printed
  */
 int print_unsigned(va_list types, char buffer[],
@@ -85,7 +84,6 @@ int print_octal(va_list types, char buffer[],
  * @width: Specified width for printing
  * @precision: Specified precision for printing
  * @size: Specified size for printing
-
  * Return: Number of characters printed
  */
 int print_hexadecimal(va_list types, char buffer[],
