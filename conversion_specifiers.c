@@ -166,7 +166,6 @@ int print_binary(va_list types, char buffer[],
 	unsigned int x, y, z, sum;
 	unsigned int a[32];
 	int count;
-	char i;
 
 	UNUSED(buffer);
 	UNUSED(flags);
@@ -187,9 +186,9 @@ int print_binary(va_list types, char buffer[],
 		sum += a[z];
 		if (sum || z == 31)
 		{
-			i = '0' + a[z];
+			char i = '0' + a[z];
 
-			write(1, &z, 1);
+			write(1, &i, 1);
 			count++;
 		}
 	}
