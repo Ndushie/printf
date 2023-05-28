@@ -24,14 +24,14 @@ int handle_write_char(char c, char buffer[],
 	if (flags & F_ZERO)
 		padding = '0';
 
-	buffer[i++] = c;
-	buffer[i] = '\0';
+	buffer[a++] = c;
+	buffer[a] = '\0';
 
 	if (width > 1)
 	{
 		buffer[BUFF_SIZE - 1] = '\0';
 		for (a = 0; a < width - 1; a++)
-			buffer[BUFF_SIZE - i - 2] = padding;
+			buffer[BUFF_SIZE - a - 2] = padding;
 
 		if (flags & F_MINUS)
 			return (write(1, &buffer[0], 1) +
@@ -102,7 +102,7 @@ int write_num(int ind, char buffer[],
 		return (0);
 	if (precis == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0')
 		buffer[ind] = padding = ' ';
-	if (precis > 0 && precision < len)
+	if (precis > 0 && precis < len)
 		padding = ' ';
 	while (precis > len)
 		buffer[--ind] = '0', len++;
@@ -161,11 +161,11 @@ int write_unsgnd(int is_negative, int ind,
 	UNUSED(is_negative);
 	UNUSED(size);
 
-	if (precis == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0')
+	if (precision == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0')
 		return (0);
-	if (precis > 0 && precis < len)
+	if (precision > 0 && precision < len)
 		padding = ' ';
-	while (precis > len)
+	while (precision > len)
 	{
 		buffer[--ind] = '0';
 		len++;
